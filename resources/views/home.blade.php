@@ -104,11 +104,11 @@
 
 
 
-    <div class="grid grid-cols-1 pt-10 md:grid-cols-2 ">
+    <div class="grid grid-cols-1 pt-10 pl-20 md:grid-cols-2 ">
        <div class="h-full pl-20 pt-9 ">
         <img src="image/doctor2.png"class="max-w-full h-62 w-3/4">
           </div>
-      <div class="pr-20 pt-36">
+      <div class="pr-20 lg:pt-20">
         <h3 class="text-blue-900 font-bold text-4xl">Find the right doctor right at your finger tip</h3><br>
         <h3 class="text-gray-500 font-bold">We help you connect with the best doctors in the country. We are here to ensure that the best is given to our lovely patients. 
           This is where the art of medicine is loved and  the love for humanity can not be overemphasized.
@@ -127,32 +127,23 @@
 
 
 
- <div id="dynamic-carousel" class="relative" data-carousel="static">
+ <div id="dynamic-carousel" class="relative pt-9" data-carousel="static">
   <!--carousel wrapper-->
-  <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+  <div class="relative h-56 w-screen overflow-hidden rounded-lg lg:w-3/4 lg:h-11/12 ">
     <!--items to loop-->
    
+   
+    <!--img src= class="rounded-t-lg h-36" alt="" /-->
+   
     @foreach($docs as $doc)
-    <div class="hidden duration-700 ease-in-out pt-12 pl-400" data-carousel-item>
-     
-      <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-      <div class="max-w-sm bg-white border border-gray-200 rounded-lg h-96 pl-40 shadow dark:bg-gray-800 dark:border-gray-700 align-center">
-        <a href="#">
-          <img src="{{ asset('storage/'.$doc->Image)}}" class="rounded-t-lg h-36" alt="" />
-        </a>
-        <div class="p-9">
-          <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$doc->name}}</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$doc->speciality}}</p>
-          <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Read more
-              <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-          </a>
-      </div>
-  </div>
+    
+    <div class="hidden duration-200 ease-linear" data-carousel-item>
       
-    </div>
+      <img src="{{ asset('storage/'.$doc->Image)}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:pl-20 md:h-62 lg:w-3/4 " alt="{{$doc->name}}">
+    
+    
+  </div>
+  
     @endforeach
       <!-- Slider controls -->
     <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -169,16 +160,57 @@
   </button>
 
   </div>
+ </div>
+
 
 
  
      
      
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-@foreach($docs as $doc)
+    
+<div class="grid grid-cols-1 lg:grid-cols-2 pt-20  pl-16 lg:pl-20 ">
+  <div class="">
+    <h3 class="text-2xl font-bold text-blue-600">
+      Subscribe for news</h3>
+      <h1> The latest news, articles and resources sent to your inbox weekly</h1>
+  </div>
+
+  <div class="">
+    <input type="text" class="bg-gray-50 rounded w-64" placeholder="your Email">
+    <button type="button" class="rounded bg-blue-500 "><h3 class="inline text-center text-white">Subscribe</h3></button>
+  </div>
+</div>
+<div class="grid grid-cols-3 gap-4   pl-10 pt-10 md:grid-cols-5 md:gap-4">
+  <div class="">
+    <h3>HOSPITAL</h3>
+    
+  </div>
+
+    <div class="">
+      <h3>COMPANY</h3>
      
-     @endforeach
+    </div>
+
+    <div class="">
+      <h3>COMPANY</h3>
+     
+    </div>
+
+    <div class="">
+      <h3>COMPANY</h3>
+      
+    </div>
+
+    <div class="">
+      <h3>COMPANY</h3>
+      
+    </div>
+  </div>
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
 </html>
 

@@ -12,7 +12,7 @@
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <a href="https://flowbite.com/" class="flex items-center">
           <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
@@ -48,7 +48,7 @@
             </svg>
          </button>
          
-         <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+         <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-40 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                <ul class="space-y-2">
                   <li>
@@ -90,43 +90,42 @@
          
 
                   <section class="pb-10 dark:bg-gray-900">
-                    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                        <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                            <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
-                            Flowbite    
-                        </a>
-                    </div>
-
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                <th>customer name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Doctor Name</th>
-                                <th>Date</th>
-                                <th>Message</th>
-                                <th>Status</th>
-                                <th>Approve</th>
-                                <th>Cancel</th>
-                                </tr>
-                            </thead>
-                            
-                                <tbody>
-                                    @foreach($appointments as $appointment)
-                                    <tr>
-                                        <td>{{$appointment->name}}</td>
-                                        <td>{{$appointment->email}}</td>
-                                        <td>{{$appointment->number}}</td>
-                                        <td>{{$appointment->doctor}}</td>
-                                        <td>{{$appointment->date}}</td>
-                                        <td>{{$appointment->message}}</td>
-                                        <td><a href="">{{$appointment->status}}</a></td>
-                                        <td><a href="{{url('approved',$appointment->id)}}">Approve</a></td>
-                                        <td><a href="{{url('canceled',$appointment->id)}}">Cancel</a></td>
-                                    </tr>
-                                </tbody>
-                            @endforeach
+                   
+                     <div class="relative overflow-x-auto pl-36">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                   <tr>
+                                   <th  scope="col" class="px-6 py-3">customer name</th>
+                                   <th  scope="col" class="px-6 py-3">Email</th>
+                                   <th  scope="col" class="px-6 py-3">Phone</th>
+                                   <th  scope="col" class="px-6 py-3">Doctor Name</th>
+                                   <th  scope="col" class="px-6 py-3">Date</th>
+                                   <th  scope="col" class="px-6 py-3">Message</th>
+                                   <th  scope="col" class="px-6 py-3">Status</th>
+                                   <th  scope="col" class="px-6 py-3">Approve</th>
+                                   <th  scope="col" class="px-6 py-3" scope="col" class="px-6 py-3">Cancel</th>
+                                   </tr>
+                               </thead>
+                               
+                                   <tbody>
+                                       @foreach($appointments as $appointment)
+                                       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->name}}</td>
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->email}}</td>
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->number}}</td>
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->doctor}}</td>
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->date}}</td>
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->message}}</td>
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->status}}</td>
+                                           
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><a href="{{url('approved',$appointment->id)}}">Approve</a></td>
+                                           <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><a href="{{url('canceled',$appointment->id)}}">Cancel</a></td>
+                                       </tr>
+                                   </tbody>
+                               @endforeach
+                           </table>
+                       </div>
+                  </section>
+                    
 
                     

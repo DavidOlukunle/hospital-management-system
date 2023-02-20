@@ -12,7 +12,7 @@
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <a href="https://flowbite.com/" class="flex items-center">
           <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
@@ -57,7 +57,7 @@
     </svg>
  </button>
  
- <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+ <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-50 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
        <ul class="space-y-2">
           <li>
@@ -110,11 +110,11 @@
     </div>
  </aside>
 
- <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+ <div class="relative overflow-x-auto pl-96 ">
+    <table class= "text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class=" py-3">
                     Doctor Name
                 </th>
                 <th scope="col" class="px-6 py-3">
