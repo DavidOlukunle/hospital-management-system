@@ -149,7 +149,7 @@
                    {{$doc->speciality}}
                 </td>
 
-                <td><a class="bg-red-600" onclick="return confirm('are you sure you want to cancel?')" href="{{url('delete_doctor',$doc->id)}}">delete</a></td>
+                <td><a class="bg-red-600 px-6 py-2" onclick="return confirm('are you sure you want to cancel?')" href="{{url('delete_doctor',$doc->id)}}">delete</a></td>
 
                 <td class="px-6 py-4"><a href='{{url('/edit_doctor',$doc->id)}}'>
                  Edit</a>

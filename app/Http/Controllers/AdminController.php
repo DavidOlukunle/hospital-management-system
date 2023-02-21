@@ -78,5 +78,8 @@ class AdminController extends Controller
         $formFields['Image']=$request->file('Image')->store('Images','public');
     }
     Docs::where('id',$id)->update($formFields);
+    
+    return redirect('/view_all_doctors');
   }
+  
 }

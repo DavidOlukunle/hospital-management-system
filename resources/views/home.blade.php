@@ -127,9 +127,9 @@
 
 
 
- <div id="dynamic-carousel" class="relative pt-9" data-carousel="static">
+ <div id="dynamic-carousel" class="relative pt-12" data-carousel="slide">
   <!--carousel wrapper-->
-  <div class="relative h-56 w-screen overflow-hidden rounded-lg lg:w-3/4 lg:h-11/12 ">
+  <div class="relative h-56 w-screen overflow-hidden rounded-lg lg:w-3/4 lg:h-96 ">
     <!--items to loop-->
    
    
@@ -137,12 +137,14 @@
    
     @foreach($docs as $doc)
     
-    <div class="hidden duration-200 ease-linear" data-carousel-item>
-      
-      <img src="{{ asset('storage/'.$doc->Image)}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:pl-20 md:h-62 lg:w-3/4 " alt="{{$doc->name}}">
-    
-    
+    <div class="hidden duration-700 ease-linear" data-carousel-item>
+     <h3 class="text-gray-150 font-bold pl-44 text-center ">{{$doc->name}}</h3>
+     <h3 class="text-gray-150 font-bold pl-44 text-center ">{{$doc->speciality}}</h3>
+      <img src="{{ asset('storage/'.$doc->Image)}}" class="lg:pl-72 h-96 w-3/4 " alt="">
+  
+
   </div>
+  
   
     @endforeach
       <!-- Slider controls -->
