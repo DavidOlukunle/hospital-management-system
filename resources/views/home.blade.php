@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+  
   <!-- ... -->
 </head>
 <body>
@@ -21,7 +22,15 @@
       </button>
       <div class="hidden w-full md:block md:w-auto" id="navbar-default">
         <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+         @if(session()->has('message'))
          
+            <div class='fixed top-0 left-1/2 transform-translate-x-1/2 text-2xl bg-gray-50 text-red-700 px-4 py-3 text-center'  x-data="{show:true}" x-show="show" x-init="setTimeout(()=>show=false,3000)">
+           <p class="bg-red-100 w-62"> {{session('message')}}
+          </p>
+            </div>
+         
+          
+         @endif
           @auth
          
             <li>
@@ -208,11 +217,15 @@
       <h3>COMPANY</h3>
       
     </div>
+
+    
   </div>
 
 
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+      <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+      <script src="//unpkg.com/alpinejs" defer></script>
 </body>
 </html>
 

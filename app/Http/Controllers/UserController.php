@@ -45,7 +45,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)){
             if(auth()->user()->usertype=='0'){
                 $request->session()->regenerate();
-                return redirect('/')->with('message','loogedin');
+                return redirect('/');
             }
              elseif(auth()->user()->usertype=='1'){
                 
@@ -53,8 +53,11 @@ class UserController extends Controller
                  return redirect('/home')->with('message','logged in');
              }
              
-            }     
-              
+             }
+             else{
+                return redirect('/')->with('message','invalid credentials');
+                 
+             }
         }
     //logout user
     public function logout(Request $request){
@@ -63,6 +66,6 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
             
-        return redirect('/')->with('message', 'You have been logged out');
+        return redirect('/');
     }
 }
