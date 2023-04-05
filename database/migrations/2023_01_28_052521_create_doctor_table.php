@@ -13,7 +13,7 @@ class CreateDocsTable extends Migration
      */
     public function up()
     {
-        Schema::create('docs', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('room_no');
@@ -31,6 +31,6 @@ class CreateDocsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('docs');
+        Schema::dropIfExists('doctor');
     }
 }

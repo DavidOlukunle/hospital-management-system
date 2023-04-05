@@ -35,23 +35,23 @@
         </thead>
         <tbody>
 
-            @foreach($appoints as $appoint)
+            @foreach($appointments as $appointment)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   {{$appoint->doctor}}
+                   {{$appointment->doctor}}
                 </th>
                 <td class="px-6 py-4">
-                   {{$appoint->message}}
+                   {{$appointment->message}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$appoint->date}}
+                    {{$appointment->date}}
                 </td>
                 <td class="px-6 py-4">
-                   {{$appoint->status}}
+                   {{$appointment->status}}
                 </td>
 
-                <td><a class="bg-red-600" onclick="return confirm('are you sure you want to cancel?')" href="{{url('cancel_appointment',$appoint->id)}}">cancel</a></td>
+                <td><a class="bg-red-600" onclick="return confirm('are you sure you want to cancel?')" href="{{url('cancel_appointment',$appointment->id)}}">cancel</a></td>
                
             </tr>
             @endforeach

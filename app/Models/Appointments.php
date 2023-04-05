@@ -9,4 +9,8 @@ class Appointments extends Model
 {
     use HasFactory;
     protected $fillable=['name','email','doctor','number','date','message','user_id','status'];
+
+    public function doctor() {
+        return $this->belongsTo(Doctor::class);
+    }
 }

@@ -10,62 +10,65 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    public function create(){
+    public function create() {
         return view('users.register');
     }
 
-    //craete new user
-    public function register(Request $request){
-        $formFields=$request->validate([
-            'name'=>['required'],
-            'password'=>['required'],
-            'email'=>['required','email', Rule::unique('users','email')],
+    //create new user
+    public function register(Request $request) {
+        $formFields = $request->validate([
+            'name' => ['required'],
+            'password' => ['required'],
+            'email' => ['required', 'email',  Rule::unique('users','email')],
             
         ]);
-        $formFields['password']=bcrypt($formFields['password']);
-        $user=User::create($formFields);
+        $formFields['password'] = bcrypt($formFields['password']);
+        $user = User::create($formFields);
 
         auth()->login($user);
         return redirect('/')->with('message','You now have an account');
     }
 
-    public function login(){
+    public function loginPage() {
         return view('users.login');
     } 
 
-
     //authenticate user
-    public function authenticate(Request $request){
-
-
-        $formFields=$request->validate([
-            'email'=>['required'],
-            'password'=>['required']
+    public function authenticate(Request  $request) {
+        $formFields = $request->validate([
+            'email'=> ['required'],
+            'password' => ['required']
         ]);
+
         if(auth()->attempt($formFields)){
-            if(auth()->user()->usertype=='0'){
+
+            if(auth()->user()->usertype == '0') {
+
                 $request->session()->regenerate();
+                
                 return redirect('/');
             }
-             elseif(auth()->user()->usertype=='1'){
+             elseif(auth()->user()->usertype == '1'){
                 
                  $request->session()->regenerate();
-                 return redirect('/home')->with('message','logged in');
+                 return redirect('/Admin/dashboard')->with('message','logged in');
              }
              
              }
              else{
-                return redirect('/')->with('message','invalid credentials');
+                return redirect('/')->with('message', 'invalid credentials');
                  
              }
         }
     //logout user
-    public function logout(Request $request){
-        auth()->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+    public function logout(Request $request) {
 
-            
+        auth()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken(); 
+
         return redirect('/');
     }
 }
