@@ -3,24 +3,25 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Doctor;
-use App\Models\Appointments;
+use App\Models\Specialist;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 class HomeController extends Controller
 {
 
     public function index() {
-        $docs = Doctor::all();
-        return view('home', compact('docs'));
+        $specialists = Specialist::all();
+        return view('home', compact('specialists'));
     }
 
     public function appointments() {
         $user_id = auth()->user()->id;
-        $docs = Doctor::all();
-        $appointments = Appointments::where('user_id', $user_id)->get();
-        return view('appointments', compact('docs', 'appointments'));
+        $specialists = Specialist::all();
+        $appointments = Appointment::where('user_id', $user_id)->get();
+        return view('appointments', compact('specialists', 'appointments'));
     }
 
     public function createAppointment(Request $request){
@@ -34,7 +35,8 @@ class HomeController extends Controller
         ]);
         $formField['status'] = 'in progress';
            $formField['user_id'] = auth()->id();
-        Appointments::create($formField);
+           $formField['uuid'] = str::uuid();
+        Appointment::create($formField);
          
         return redirect('/appointments')->with('messaage', 'Appointment created successfully!');
     }
@@ -42,7 +44,7 @@ class HomeController extends Controller
     public function deleteAppointment($id) {
         
         try{
-            Appointments::where('id', $id)->delete();
+            Appointment::where('id', $id)->delete();
         }
 
         catch (\Exception $e){

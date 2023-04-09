@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDoctors extends FormRequest
+class StoreSpecialist extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,7 @@ class StoreDoctors extends FormRequest
                 'room_no' => ['required'],
                 'doctor_no' => ['required'],
                 'speciality' => ['required'],
-                'Image' => 'required|mimes:jpg,png|max:5048'
+                'image' => 'required|mimes:jpg,png|max:5048'
                 
            
         ];

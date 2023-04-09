@@ -144,12 +144,12 @@
    
     <!--img src= class="rounded-t-lg h-36" alt="" /-->
    
-    @foreach($docs as $doc)
+    @foreach($specialists as $specialist)
     
     <div class="hidden duration-700 ease-linear" data-carousel-item>
-     <h3 class="text-gray-150 font-bold pl-44 text-center ">{{$doc->name}}</h3>
-     <h3 class="text-gray-150 font-bold pl-44 text-center ">{{$doc->speciality}}</h3>
-      <img src="{{ asset('storage/'.$doc->Image)}}" class="lg:pl-72 h-96 w-3/4 " alt="">
+     <h3 class="text-gray-150 font-bold pl-44 text-center ">{{$specialist->name}}</h3>
+     <h3 class="text-gray-150 font-bold pl-44 text-center ">{{$specialist->speciality}}</h3>
+      <img src="{{ asset('storage/'.$specialist->image)}}" class="lg:pl-72 h-96 w-3/4 " alt="">
   
 
   </div>

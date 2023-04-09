@@ -45,20 +45,22 @@ Route::get('Admin/dashboard', [AdminController::class, 'adminDashboard'])->middl
 
 Route::post('Admin/register', [AdminController::class, 'store']);
 
-Route::get('Admin/addDoctors', [AdminController::class, 'addDoctors'])->middleware('auth');
+Route::get('Admin/add-specialist', [AdminController::class, 'addSpecialist'])->middleware('auth');
 
 Route::get('Admin/showAppointments', [AdminController::class, 'showAppointments'])->middleware('auth');
 
-Route::get('/approved/{id}', [AdminController::class, 'approveAppointment']);
+// Route::get('Admin/performAction/{action}', [AdminController::class, 'performAppointmentAction']);
 
-Route::get('/canceled/{id}', [AdminController::class, 'cancelAppointment']);
+Route::get('Admin/approved/{uuid}', [AdminController::class, 'approveAppointment']);
 
-Route::get('Admin/view_all_doctors', [AdminController::class, 'showDoctors'])->middleware('auth');
+Route::get('Admin/canceled/{uuid}', [AdminController::class, 'cancelAppointment']);
 
-Route::delete('/delete_doctor/{doctor}', [AdminController::class, 'deleteDoctor']);
+Route::get('Admin/all-specialists', [AdminController::class, 'showSpecialists'])->middleware('auth');
 
-Route::get('/edit_doctor/{id}', [AdminController::class, 'editPage']);
+Route::delete('Admin/delete_specialist/{specialist}', [AdminController::class, 'deleteSpecialist']);
 
-Route::put('Admin/edit_doctor/{id}', [AdminController::class, 'updateDoctor']);
+Route::get('Admin/edit_specialist/{id}', [AdminController::class, 'editPage']);
+
+Route::put('Admin/update-specialist/{id}', [AdminController::class, 'updateSpecialist']);
 
 

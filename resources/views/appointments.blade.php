@@ -98,9 +98,9 @@
       w-full
       px-3
       py-1.5">
-            @foreach($docs as $doc)
+            @foreach($specialists as $specialist)
             <option>---select----</option>
-            <option value="{{$doc->name}}">{{$doc->name}} ---{{$doc->speciality}}</option>
+            <option value="{{$specialist->name}}">{{$specialist->name}} ---{{$specialist->speciality}}</option>
             @endforeach
         </select>
     </div>
