@@ -51,7 +51,7 @@ class UserController extends Controller
              elseif(auth()->user()->usertype == '1'){
                 
                  $request->session()->regenerate();
-                 return redirect('/Admin/dashboard')->with('message','logged in');
+                 return redirect('/admin/dashboard')->with('message','logged in');
              }
              
              }

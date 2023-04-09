@@ -34,7 +34,7 @@ class AdminController extends Controller
             'speciality' => $request->input('speciality'),
         ]);
       
-            return redirect('/Admin/dashboard')->with('message','Specialist created succesfully');
+            return redirect('/admin/dashboard')->with('message','Specialist created succesfully');
     }
 
 
@@ -50,14 +50,14 @@ class AdminController extends Controller
        
         $appointment->update(['status' => 'approved']);
 
-        return redirect('/Admin/showAppointments');
+        return redirect('/admin/showAppointments');
      
     }
 
     public function cancelAppointment($uuid) {
         $appointment = Appointment::where('uuid', $uuid);
         $appointment->update(['status' => 'canceled']);
-        return redirect('Admin/showAppointments');
+        return redirect('admin/showAppointments');
     }
 
     public function showSpecialists() {
@@ -70,7 +70,7 @@ class AdminController extends Controller
 
       $specialist->delete();
 
-        return redirect('/Admin/view_all_doctors/');
+        return redirect('/admin/view_all_doctors/');
     }
 
    public function editPage($id) {

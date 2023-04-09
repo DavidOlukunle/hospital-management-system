@@ -41,9 +41,9 @@
                <td scope = "row" class = "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->message}}</td>
                <td scope = "row" class = "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$appointment->status}}</td>
                
-               <td scope = "row" class = "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><a onclick = "return confirm('are you sure?')" href="{{url('Admin/approved', $appointment->uuid)}}">Approve</a></td>
+               <td scope = "row" class = "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><a onclick = "return confirm('are you sure?')" href="{{url('admin/approved', $appointment->uuid)}}">Approve</a></td>
                
-               <td scope = "row" class = "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><a  onclick = "return confirm('are you sure?')"  href="{{url('Admin/canceled', $appointment->uuid)}}">Cancel</a></td>
+               <td scope = "row" class = "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><a  onclick = "return confirm('are you sure?')"  href="{{url('admin/canceled', $appointment->uuid)}}">Cancel</a></td>
             </tr>
          </tbody>
             @endforeach

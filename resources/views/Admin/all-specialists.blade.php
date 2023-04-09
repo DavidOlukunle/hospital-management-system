@@ -51,13 +51,13 @@
                    {{$specialist->speciality}}
                 </td>
 
-                <form action = "{{url('Admin/delete_specialist', $specialist->id)}}" method = "Post" >
+                <form action = "{{url('admin/delete_specialist', $specialist->id)}}" method = "Post" >
                      @csrf
                      @method('DELETE')
                      <td><button class = "bg-red-600 px-6 py-2"  onclick = "return confirm('are you sure you want to delete?')"> delete</button></td>
                   </form>
 				  
-                <td class="px-6 py-4"><a href='{{url('Admin/edit_specialist', $specialist->id)}}'>
+                <td class="px-6 py-4"><a href='{{url('admin/edit_specialist', $specialist->id)}}'>
                  Edit</a>
                </td>
                

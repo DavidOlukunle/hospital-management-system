@@ -11,7 +11,7 @@
 
 
 
-<form class="space-y-4 md:space-y-6" action="{{url('Admin/edit-specialist', $doctors->id)}}" method="POST" enctype="multipart/form-data">
+<form class="space-y-4 md:space-y-6" action="{{url('admin/edit-specialist', $doctors->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method("PUT")
     <div>

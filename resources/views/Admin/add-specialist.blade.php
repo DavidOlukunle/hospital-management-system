@@ -26,7 +26,7 @@
                     Add new Doctors
                 </h1>
 
-                <form class = "space-y-4 md:space-y-6" action = "{{url('Admin/register')}}" method = "POST" enctype="multipart/form-data">
+                <form class = "space-y-4 md:space-y-6" action = "{{url('admin/register')}}" method = "POST" enctype="multipart/form-data">
                     @csrf
                     
                     <div>
