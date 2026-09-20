@@ -1,0 +1,49 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hospital-management-app
+    ports:
+      - "8000:80"
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www/html
+      - hospital_app_vendor:/var/www/html/vendor
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    container_name: hospital-management-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: hospital_management
+      MYSQL_USER: hospital
+      MYSQL_PASSWORD: hospital_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - hospital_db_data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-proot_password"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  hospital_db_data:
+  hospital_app_vendor:

@@ -20,23 +20,25 @@ class AdminController extends Controller
     }
 
 
-    public function store(updateSpecialist $request) {
+   public function store(updateSpecialist $request)
+{
+    $imagePath = '';
 
-        if($request->hasFile('image')) {
-            $newImage['image'] = $request->file('image')->store('image', 'public');
-        }
-
-        Specialist::create([
-            'name' => $request->input('name'),
-            'room_no' => $request->input('room_no') ,
-            'doctor_no' => $request->input('doctor_no'),
-            'image' => $newImage,
-            'speciality' => $request->input('speciality'),
-        ]);
-      
-            return redirect('/admin/dashboard')->with('message','Specialist created succesfully');
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('image', 'public');
     }
 
+    Specialist::create([
+        'name' => $request->input('name'),
+        'room_no' => $request->input('room_no'),
+        'doctor_no' => $request->input('doctor_no'),
+        'image' => $imagePath,
+        'speciality' => $request->input('speciality'),
+    ]);
+
+    return redirect('/admin/dashboard')
+        ->with('message', 'Specialist created successfully');
+}
 
     public function showAppointments() {
         $appointments = Appointment::where('status',  'in progress')->get();
