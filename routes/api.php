@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\PublicSpecialistController;
 use App\Http\Controllers\Api\Admin\AppointmentController as AdminAppointmentController;
 use App\Http\Controllers\Api\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Api\Admin\DashboardController;
+use App\Http\Controllers\Api\SpecialtyController;
 
 Route::prefix('auth')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
@@ -19,6 +20,11 @@ Route::prefix('auth')->group(function () {
         Route::get('/me', [AuthController::class, 'me']);
     });
 });
+
+Route::get(
+    '/specialties',
+    [SpecialtyController::class, 'index']
+);
 
 Route::get(
     '/specialists',
